@@ -103,3 +103,64 @@ body{
   }
   
 }
+.inputContainer{
+  width:80px;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: slategray;
+  border-radius: 15px;
+}
+.inputContainer .searchBar{
+  width: 100%;
+  font-size: 0.75rem; /* 12px */
+  background-color: transparent;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  outline: none;
+}
+.inputContainer .closeButton{
+  font-size: 1.25rem; 
+  color: #64748b; 
+  cursor: pointer;
+  margin-right: 0.75rem; 
+}
+.inputContainer .closeButton :hover{
+  color:black;
+}
+.inputContainer .magnGlass {
+  color: #94a3b8; /* Slate 400 */
+    cursor: pointer;
+
+}
+.inputContainer .magnGlass :hover {
+  color:black;
+}
+.lookUpContainer{
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1.5rem; /* 24px */
+  padding-right: 1.5rem; /* 24px */
+  padding-top: 0.5rem; /* 8px */
+  padding-bottom: 0.5rem; /* 8px */
+  box-shadow: 0 1px 
+
+}
+.lookUpTitle{
+  font-size: 1.25rem; /* 20px */
+  font-weight: 500; /* Medium */
+  color: black;
+  padding-top: 0.5rem; /* 8px */
+  padding-bottom:0.5rem;
+
+}
+footer{
+  background-color: #333;
+  color: #fff;
+}
+.AboutUs h1, .AboutUs p{
+  color:white;
+}
