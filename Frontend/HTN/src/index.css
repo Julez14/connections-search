@@ -1,68 +1,105 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body{
+  background-color:black;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+.card{
+  border: 3px solid white;
+  background-color: black;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  padding-left: 10%;
+  padding-right: 10%;
+  margin: 10px;
+  text-align: center;
+  max-width:25%;
+  display: inline-block;
 }
-a:hover {
-  color: #535bf2;
+.cardTitle{
+  color:white;
+  position: center;
 }
-
-body {
-  margin: 0;
+.cardText{
+  color:white;
+  justify-content: center;
+}
+.navContainer{
+  background-color: black;
+  border: 3px solid rgb(244, 64, 64);
+  justify-content: end;
+}
+.navContainer .Navbar .navElements li a{
+  color:white;
+  font-family: "Montserrat", sans-serif, Arial;  
+  display: inline-block;
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-left: 10px;
+  text-decoration: none;
+  padding: 8px 18px;
+  user-select: none;    
+  animation: slide_top 2s ease forwards;
+  animation-iteration-count: 1;
+  animation-delay:calc(0.2s*var(--i));
+  opacity:0;
+}
+.navContainer .Navbar .navElements li{
+  list-style-type: none;
+  
+}
+.navContainer .Navbar ul{
+  position:relative;
+  display:flex;
+}
+.navContainer{
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: flex-end;
+  width:75%;
+  position: absolute;
+  right:10px;
+  top:10px;
+  justify-content: space-evenly;
+  z-index: 1000;
+}
+.webTitle{
+  position:relative;
+  color:rgb(255, 255, 255);
+  display: inline-block;
+  font-size:2em;
+  text-decoration:none;
+  font-weight: 800;
+  font-family: "montserrat", Arial, Helvetica, sans-serif;
+  animation: slide_right 2s ease forwards;
+  animation-iteration-count: 1;
+  animation-delay:0.2s;
+  opacity:0;
+  z-index: 2000;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.navElements li a.active, .navElements .Navbar li a:hover{
+  color: black;
+  background-color: white;
+  border-radius: 15px;
 }
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@keyframes slide_top {
+  0%{
+    transform:translateY(-100);
+    opacity: 0;
   }
-  a:hover {
-    color: #747bff;
+  100%{
+    transform: translateY(0);
+    opacity: 1;
   }
-  button {
-    background-color: #f9f9f9;
+  
+}
+@keyframes slide_right {
+  0%{
+    transform: translateX(-100);
+    opacity: 0;
   }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
 }
