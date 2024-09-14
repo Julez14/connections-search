@@ -53,8 +53,12 @@ const NetworkGraph = () => {
                 .selectAll('circle')
                 .data(graph.nodes)
                 .enter().append('circle')
-                .attr('r', 10)
-                .attr('fill', 'steelblue')
+                .attr('r', d => Math.sqrt(d.followers) * 2)  // Scale radius based on followers
+                .attr('fill', d => {
+                    // Change the color of the node with id 1 to red
+                    if (d.id === "1") return 'slateblue';  // Node with id 1 is red
+                    return 'steelblue';  // Default color for other nodes
+                })
                 .call(d3.drag()
                     .on('start', dragstarted)
                     .on('drag', dragged)
@@ -87,10 +91,12 @@ const NetworkGraph = () => {
                 .selectAll('text')
                 .data(graph.nodes)
                 .enter().append('text')
-                .attr('dy', 4)
-                .attr('x', 12)
-                .attr('fill', '#555')
-                .text(d => d.id);
+                .attr('dy', -15)  // Adjust dy to place the label above the node (negative value moves it up)
+                .attr('x', d => d.x)
+                .attr('y', d => d.y)
+                .attr('text-anchor', 'middle')  // Center the text horizontally
+                .attr('fill', 'white')  // Set text color
+                .text(d => d.name);  // Display the node's id or any other relevant information
 
             simulation.on('tick', () => {
                 link
@@ -105,7 +111,7 @@ const NetworkGraph = () => {
 
                 labels
                     .attr('x', d => d.x)
-                    .attr('y', d => d.y);
+                    .attr('y', d => d.y - 20);  // Keep the label above the node
             });
 
             // Dragging functions
