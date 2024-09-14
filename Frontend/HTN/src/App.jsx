@@ -10,15 +10,12 @@ import NetworkGraph from './NetworkGraph';
 function App() {
 
   return (
-    <div>
+    <div> 
       <Navbar/>
       <Card/>
 
       <h1>Network Graph with D3.js in React</h1>
-      <div className="graph-container">
-        <NetworkGraph />
-        <NetworkGraph />
-      </div> 
+      <NetworkGraph />
     </div>
   )
 }
