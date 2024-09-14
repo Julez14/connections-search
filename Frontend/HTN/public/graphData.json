@@ -1,16 +1,28 @@
 {
-    "nodes": [
-      { "id": "A" },
-      { "id": "B" },
-      { "id": "C" },
-      { "id": "D" },
-      { "id": "E" }
-    ],
-    "links": [
-      { "source": "A", "target": "B" },
-      { "source": "A", "target": "C" },
-      { "source": "A", "target": "D" },
-      { "source": "A", "target": "E" }
-    ]
-  }
-  
+  "nodes": [
+    {"id":"1","username":"julianzhang_","name":"Julian Zhang","followers":"45","following":"313"},
+    {"id":"2","username":"JiaoDeng4","name":"Jiao Deng","followers":"1","following":"3"},
+    {"id":"3","username":"armsafna","name":"Armin Safavi","followers":"244","following":"268"},
+    {"id":"4","username":"spraidennnn","name":"gianna","followers":"35","following":"7"},
+    {"id":"5","username":"zhkalllie","name":"kallie","followers":"23","following":"23"},
+    {"id":"6","username":"knightsfan69","name":"TY","followers":"18","following":"290"},
+    {"id":"7","username":"yourboyrs","name":"rayray","followers":"18","following":"33"},
+    {"id":"8","username":"gnauhailuj","name":"julia","followers":"22","following":"25"},
+    {"id":"9","username":"EdwinWa30864054","name":"ok","followers":"22","following":"23"},
+    {"id":"10","username":"KhaykinRaf","name":"raf Khaykin","followers":"23","following":"59"},
+    {"id":"11","username":"pk_airisu","name":"iris","followers":"32","following":"845"}
+  ],
+
+  "links": [
+    { "source": "1", "target": "2"},
+    { "source": "1", "target": "3"},
+    { "source": "1", "target": "4"},
+    { "source": "1", "target": "5"},
+    { "source": "1", "target": "6"},
+    { "source": "1", "target": "7"},
+    { "source": "1", "target": "8"},
+    { "source": "1", "target": "9"},
+    { "source": "1", "target": "10"},
+    { "source": "1", "target": "11"}
+  ]
+}

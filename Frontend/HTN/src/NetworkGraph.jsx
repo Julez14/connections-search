@@ -4,6 +4,7 @@ import * as d3 from 'd3';
 
 const NetworkGraph = () => {
     const svgRef = useRef();
+    const tooltipRef = useRef();
 
     useEffect(() => {
         // Fetch the graph data from the external file
@@ -11,6 +12,20 @@ const NetworkGraph = () => {
             const svg = d3.select(svgRef.current)
                 .attr('width', 800)
                 .attr('height', 600);
+
+            const tooltip = d3.select(tooltipRef.current)
+                .style('position', 'absolute')
+                .style('padding', '10px')
+                .style('background', '#333')
+                .style('color', '#fff')
+                .style('border', '1px solid #777')
+                .style('border-radius', '6px')
+                .style('pointer-events', 'none')
+                .style('opacity', 0)
+                .style('box-shadow', '0 4px 6px rgba(0, 0, 0, 0.1)')
+                .style('font-size', '12px')
+                .style('max-width', '200px')
+                .style('white-space', 'nowrap');
 
             const width = 800;
             const height = 600;
@@ -43,7 +58,28 @@ const NetworkGraph = () => {
                 .call(d3.drag()
                     .on('start', dragstarted)
                     .on('drag', dragged)
-                    .on('end', dragended));
+                    .on('end', dragended))
+                .on('mouseover', (event, d) => {
+                    tooltip
+                        .style('opacity', 1)
+                        .html(`
+                            <strong>ID:</strong> ${d.id}<br>
+                            <strong>Username:</strong> ${d.username || 'N/A'}<br>
+                            <strong>Name:</strong> ${d.name || 'N/A'}<br>
+                            <strong>Followers:</strong> ${d.followers || 'N/A'}<br>
+                            <strong>Following:</strong> ${d.following || 'N/A'}
+                        `)
+                        .style('left', `${event.pageX + 10}px`)
+                        .style('top', `${event.pageY - 28}px`);
+                })
+                .on('mousemove', (event) => {
+                    tooltip
+                        .style('left', `${event.pageX + 10}px`)
+                        .style('top', `${event.pageY - 28}px`);
+                })
+                .on('mouseout', () => {
+                    tooltip.style('opacity', 0);
+                });
 
             // Add labels to nodes
             const labels = svg.append('g')
@@ -93,8 +129,12 @@ const NetworkGraph = () => {
     }, []);
 
     return (
-        <svg ref={svgRef}></svg>
+        <>
+            <svg ref={svgRef}></svg>
+            <div ref={tooltipRef} className="tooltip"></div>
+        </>
     );
 };
 
 export default NetworkGraph;
+
