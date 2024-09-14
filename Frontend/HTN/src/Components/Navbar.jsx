@@ -10,10 +10,10 @@ function Navbar(){
             <div className="navContainer">
             <nav className="Navbar">
                 <ul className="navElements">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Connections</a></li>
-                    <li><a href="">AI Recommendations</a></li>
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#About">About</a></li>
+                    <li><a href="#Connections">Connections</a></li>
+                    <li><a href="#AI">AI Recommendations</a></li>
                 </ul>
             </nav>
             </div>
