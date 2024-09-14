@@ -1,0 +1,15 @@
+/* src/App.css */
+.App {
+    text-align: center;
+  }
+  
+  .graph-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adds space between the two graphs */
+  }
+  
+  svg {
+    border: 1px solid black; /* Optional: Add a border to distinguish each graph */
+  }
+  
