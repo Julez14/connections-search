@@ -10,9 +10,9 @@ const NetworkGraph = () => {
         // Fetch the graph data from the external file
         d3.json('/graphData.json').then((graph) => {
             const svg = d3.select(svgRef.current)
-                .attr('width', 800)
-                .attr('height', 600);
-
+                .attr('width', 1000)
+                .attr('height', 1000);
+            
             const tooltip = d3.select(tooltipRef.current)
                 .style('position', 'absolute')
                 .style('padding', '10px')
@@ -22,7 +22,7 @@ const NetworkGraph = () => {
                 .style('border-radius', '6px')
                 .style('pointer-events', 'none')
                 .style('opacity', 0)
-                .style('box-shadow', '0 4px 6px rgba(0, 0, 0, 0.1)')
+                .style('box-shadow', '0 4px 6px rgba(0, 0,  0, 0.1)')
                 .style('font-size', '12px')
                 .style('max-width', '200px')
                 .style('white-space', 'nowrap');
@@ -53,10 +53,10 @@ const NetworkGraph = () => {
                 .selectAll('circle')
                 .data(graph.nodes)
                 .enter().append('circle')
-                .attr('r', d => Math.sqrt(d.followers) * 2)  // Scale radius based on followers
+                .attr('r', d => Math.cbrt(d.followers) * 2)  // Scale radius based on followers
                 .attr('fill', d => {
                     // Change the color of the node with id 1 to red
-                    if (d.id === "1") return 'slateblue';  // Node with id 1 is red
+                    if (d.id === "0") return 'slateblue';  // Node with id 1 is red
                     return 'steelblue';  // Default color for other nodes
                 })
                 .call(d3.drag()
@@ -68,10 +68,8 @@ const NetworkGraph = () => {
                         .style('opacity', 1)
                         .html(`
                             <strong>ID:</strong> ${d.id}<br>
-                            <strong>Username:</strong> ${d.username || 'N/A'}<br>
                             <strong>Name:</strong> ${d.name || 'N/A'}<br>
-                            <strong>Followers:</strong> ${d.followers || 'N/A'}<br>
-                            <strong>Following:</strong> ${d.following || 'N/A'}
+                            <strong>Followers:</strong> ${d.followers || 'N/A'}
                         `)
                         .style('left', `${event.pageX + 10}px`)
                         .style('top', `${event.pageY - 28}px`);
